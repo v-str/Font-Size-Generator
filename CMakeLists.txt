@@ -1,21 +1,18 @@
 ﻿cmake_minimum_required(VERSION 3.9)
 
 set (cmake_cxx_standard 11)
-set (cmake_automoc ON)
-set (cmake_include_current_dir ON)
-set (project_name FontController)
-project(${project_name})
+
+project(FontController)
+
+set (CMAKE_AUTOMOC ON)
+set (CMAKE_INCLUDE_CURRENT_DIR ON)
 
 find_package (Qt5Widgets REQUIRED)
+find_package (Qt5Gui)
+find_package (Qt5Core)
 
-include_directories (test_code library)
+file (GLOB sources "*.cpp")
 
-set (library_output_path ${project_binary_dir})
+add_library (FontController SHARED ${sources})
 
-add_subdirectory (library)
-
-file (GLOB sources "test_code/*.cpp")
-
-add_executable (${project_name} ${sources})
-
-target_link_libraries (${project_name} library)
+qt5_use_modules (FontController Widgets)
