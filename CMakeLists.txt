@@ -5,6 +5,11 @@ project (${PROJECT_NAME})
 
 enable_testing ()
 
+include_directories (src
+                     src/testing_framework
+                     lib)
+
+
 set (CMAKE_INCLUDE_CURRENT_DIR ON)
 set (CMAKE_CXX_STANDARD 11)
 

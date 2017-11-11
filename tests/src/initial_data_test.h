@@ -1,5 +1,0 @@
-#ifndef INITIAL_DATA_TEST_H
-#define INITIAL_DATA_TEST_H
-
-
-#endif // INITIAL_DATA_TEST_H
