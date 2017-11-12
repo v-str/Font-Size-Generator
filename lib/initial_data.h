@@ -4,6 +4,8 @@
 class InitialData {
  public:
   void SetInitialWidgetWidth(int initial_widget_width);
+  void SetInitialWidgetHeight(int initial_widget_height);
+  void SetInitialFontPixelSize(int initial_font_pixel_size);
 
   int InitialWidgetWidth() const;
 
