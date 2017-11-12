@@ -8,7 +8,7 @@ class InitialData {
   int InitialWidgetWidth() const;
 
  private:
-  bool IsInputValuePositive(int input_value) const;
+  int CheckOnNegativeValue(int input_value);
 
   int initial_widget_width_ = 0;
   int initial_widget_height_ = 0;
