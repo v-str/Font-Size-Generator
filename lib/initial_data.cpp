@@ -18,9 +18,7 @@ int InitialData::InitialWidgetWidth() const { return initial_widget_width_; }
 
 int InitialData::CheckOnNegativeValue(int input_value) {
   if (input_value <= 0) {
-    throw std::logic_error(
-        "The widget sides size should be"
-        "greater than 0");
+    throw std::logic_error("The widget sides size should be greater than 0");
   }
   return input_value;
 }
