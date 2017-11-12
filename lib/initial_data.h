@@ -10,6 +10,9 @@ class InitialData {
   void SetFontScaleMultiplier(double font_scale_multiplier);
 
   int InitialWidgetWidth() const;
+  int InitialWidgetHeight() const;
+  int InitialFontPixelSize() const;
+  double FontScaleMultiplier() const;
 
  private:
   int CheckOnNegativeValue(int input_value);

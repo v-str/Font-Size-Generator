@@ -21,6 +21,16 @@ void InitialData::SetFontScaleMultiplier(double font_scale_multiplier) {
 
 int InitialData::InitialWidgetWidth() const { return initial_widget_width_; }
 
+int InitialData::InitialWidgetHeight() const { return initial_widget_height_; }
+
+int InitialData::InitialFontPixelSize() const {
+  return initial_font_pixel_size_;
+}
+
+double InitialData::FontScaleMultiplier() const {
+  return font_scale_multiplier_;
+}
+
 int InitialData::CheckOnNegativeValue(int input_value) {
   if (input_value <= 0) {
     throw std::logic_error("The widget sides size should be greater than 0");
