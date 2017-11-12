@@ -37,5 +37,14 @@ SCENARIO("correct storing and obtaining initial data") {
                 std::string("The widget sides size should be greater than 0"));
       }
     }
+
+    WHEN(
+        "method SetFontScaleMultiplier called with negative value as "
+        "parameter") {
+      THEN("exception should be thrown") {
+        REQUIRE_THROWS_AS(initial_data.SetFontScaleMultiplier(-1.0),
+                          const std::exception&);
+      }
+    }
   }
 }

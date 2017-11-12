@@ -7,10 +7,13 @@ class InitialData {
   void SetInitialWidgetHeight(int initial_widget_height);
   void SetInitialFontPixelSize(int initial_font_pixel_size);
 
+  void SetFontScaleMultiplier(double font_scale_multiplier);
+
   int InitialWidgetWidth() const;
 
  private:
   int CheckOnNegativeValue(int input_value);
+  double CheckOnNegativeFontScaleMultiplier(double font_scale_multiplier);
 
   int initial_widget_width_ = 0;
   int initial_widget_height_ = 0;
