@@ -106,3 +106,20 @@ SCENARIO("correct initial data setting") {
     }
   }
 }
+
+SCENARIO("correct initial data getting") {
+  GIVEN("instance of class with correct setters methods") {
+    InitialData initial_data;
+    initial_data.SetInitialWidgetWidth(400);
+    initial_data.SetInitialWidgetHeight(600);
+    initial_data.SetInitialFontPixelSize(16);
+    initial_data.SetFontScaleMultiplier(1.7);
+
+    WHEN("method InitialWidgetWidth called") {
+      THEN("the result should be equal 400") {
+        int result = 400;
+        REQUIRE(result == initial_data.InitialWidgetWidth());
+      }
+    }
+  }
+}
