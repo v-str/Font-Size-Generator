@@ -5,7 +5,7 @@
 
 #include <initial_data.h>
 
-SCENARIO("correct receiving of initial data") {
+SCENARIO("correct initial data setting") {
   GIVEN("instance of InitialData class") {
     InitialData initial_data;
 
