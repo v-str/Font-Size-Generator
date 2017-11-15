@@ -52,7 +52,7 @@ SCENARIO("correct storing and obtaining initial data") {
         "parameter") {
       std::string error_text;
       try {
-        initial_data.SetFontScaleMultiplier(-0.2);
+        initial_data.SetFontScaleMultiplier(-0.1);
       } catch (const std::exception& error) {
         error_text = error.what();
       }

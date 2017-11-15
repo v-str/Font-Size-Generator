@@ -8,14 +8,18 @@ set (CMAKE_CXX_STANDARD 11)
 set (PROJECT_NAME FontController)
 project (${PROJECT_NAME})
 
-include_directories (testing_framework
+include_directories (tests
+                     tests/testing_framework
                      library)
 
 add_subdirectory (library)
 
-file (GLOB SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+file (GLOB SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+                   "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cpp")
 
-add_executable (${PROJECT_NAME} "${SOURCES}")
+file (GLOB HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/tests/testing_framework*.h")
+
+add_executable (${PROJECT_NAME} "${SOURCES}" "${HEADERS}")
 
 target_link_libraries (${PROJECT_NAME} FontControllerLibrary)
 
