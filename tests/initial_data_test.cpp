@@ -117,8 +117,30 @@ SCENARIO("correct initial data getting") {
 
     WHEN("method InitialWidgetWidth called") {
       THEN("the result should be equal 400") {
-        int result = 400;
-        REQUIRE(result == initial_data.InitialWidgetWidth());
+        int font_width_result = 400;
+        REQUIRE(font_width_result == initial_data.InitialWidgetWidth());
+      }
+    }
+
+    WHEN("method InitialWidgetHeight called") {
+      THEN("the result should be equal 600") {
+        int font_height_result = 600;
+        REQUIRE(font_height_result == initial_data.InitialWidgetHeight());
+      }
+    }
+
+    WHEN("method InitialFontPixelSize called") {
+      THEN("the result should be equal 16") {
+        int font_pixel_size_result = 16;
+        REQUIRE(font_pixel_size_result == initial_data.InitialFontPixelSize());
+      }
+    }
+
+    WHEN("method FontScaleMultiplier called") {
+      THEN("the result should be equal 1.7") {
+        double font_scale_multiplier_result = 1.7;
+        REQUIRE(font_scale_multiplier_result ==
+                initial_data.FontScaleMultiplier());
       }
     }
   }
