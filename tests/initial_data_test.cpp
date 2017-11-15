@@ -9,13 +9,37 @@ SCENARIO("correct storing and obtaining initial data") {
   GIVEN("instance of InitialData class") {
     InitialData initial_data;
 
-    WHEN("any setter receive negative value or 0 as parameter") {
+    WHEN("method SetInitialWidgetWidth receive negative value") {
       THEN("exception should be thrown") {
         REQUIRE_THROWS_AS(initial_data.SetInitialWidgetWidth(-100),
                           const std::exception&);
-        REQUIRE_THROWS_AS(initial_data.SetInitialWidgetWidth(-56),
-                          const std::exception&);
+      }
+    }
+
+    WHEN("method SetInitialWidgetWidth receive 0 as parameter") {
+      THEN("exception should be thrown") {
         REQUIRE_THROWS_AS(initial_data.SetInitialWidgetWidth(0),
+                          const std::exception&);
+      }
+    }
+
+    WHEN("method SetInitialWidgetHeight receive negative value") {
+      THEN("exception should be thrown") {
+        REQUIRE_THROWS_AS(initial_data.SetInitialWidgetHeight(-100),
+                          const std::exception&);
+      }
+    }
+
+    WHEN("method SetInitialWidgetHeight receive 0 as parameter") {
+      THEN("exception should be thrown") {
+        REQUIRE_THROWS_AS(initial_data.SetInitialWidgetHeight(0),
+                          const std::exception&);
+      }
+    }
+
+    WHEN("method SetInitialFontPixelSize receive negative value") {
+      THEN("exception should be thrown") {
+        REQUIRE_THROWS_AS(initial_data.SetInitialFontPixelSize(-100.5),
                           const std::exception&);
       }
     }
