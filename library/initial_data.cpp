@@ -41,7 +41,8 @@ int InitialData::CheckOnNegativeValue(int input_value) {
 double InitialData::CheckOnNegativeFontScaleMultiplier(
     double font_scale_multiplier) {
   if (font_scale_multiplier < 0.0) {
-    throw std::logic_error("Font scale multiplier must be positive value");
+    throw std::logic_error(
+        "Font scale multiplier should be positive or neutral value");
   }
   return font_scale_multiplier;
 }
