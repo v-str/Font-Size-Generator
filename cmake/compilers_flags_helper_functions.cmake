@@ -19,5 +19,5 @@ macro (add_linker_flags)
     foreach (flag ${ARGV})
         set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${flag}")
     endforeach ()
-    message ("ARGV: " ${ARGV})
 endmacro ()
+
