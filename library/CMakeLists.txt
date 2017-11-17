@@ -1,4 +1,6 @@
-﻿set (CMAKE_AUTOMOC ON)
+﻿cmake_minimum_required (VERSION 3.0)
+
+set (CMAKE_AUTOMOC ON)
 
 find_package (Qt5Widgets REQUIRED)
 find_package (Qt5Gui)
