@@ -8,6 +8,7 @@ install:
   - cd NewCMake
   - sudo apt remove cmake
   - wget "https://cmake.org/files/v3.10/cmake-3.10.0-rc5.tar.gz"
+  - ls -1
   - cd cmake-3.10.0-rc5
   - sudo apt-get install autoconf # for ./configure
   - ./configure
