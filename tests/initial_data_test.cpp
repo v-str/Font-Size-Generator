@@ -56,7 +56,7 @@ SCENARIO("correct initial data setting") {
           "exception should contain \"The widget sides size should be greater "
           "than 0\"") {
         REQUIRE(error_text ==
-                std::string("The widget sides size should be greater than 0"));
+                std::string("THe widget sides size should be greater than 0"));
       }
     }
 
