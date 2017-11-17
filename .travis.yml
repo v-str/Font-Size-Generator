@@ -3,6 +3,9 @@ language: cpp
 
 compiler: gcc
 
+install:
+  - sudo apt-get install cmake
+
 script:
   - cmake CMakeLists.txt
   - make
