@@ -5,7 +5,7 @@ compiler: gcc
 
 install:
   - mkdir NewCMake
-  - cd NewCmake
+  - cd NewCMake
   - sudo apt remove cmake
   - wget "https://cmake.org/files/v3.10/cmake-3.10.0-rc5.tar.gz"
   - cd cmake-3.10.0-rc5
@@ -13,6 +13,8 @@ install:
   - ./configure
   - make
   - make install
+  - cd ../
+  - cd ../
 script:
   - cmake CMakeLists.txt
   - make
