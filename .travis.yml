@@ -16,4 +16,4 @@ before_install:
 script:
   - cmake CMakeLists.txt
   - make
-  - ./FontController
+  - sudo ./FontController
