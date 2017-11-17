@@ -5,5 +5,5 @@ compiler: gcc
 
 script:
   - cmake
-  - make
+  - make install
   - ./FontController
