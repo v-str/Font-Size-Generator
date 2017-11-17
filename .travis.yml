@@ -4,5 +4,6 @@ language: cpp
 compiler: gcc
 
 script:
-  - cmake
+  - cmake CMakeLists.txt
   - make
+  - ./FontController
