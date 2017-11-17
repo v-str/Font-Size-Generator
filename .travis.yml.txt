@@ -1,3 +1,9 @@
+sudo: enabled
 language: cpp
 
-sudo: enabled
+compiler: gcc
+
+script:
+  - cmake
+  - make
+  - ./FontController
