@@ -13,11 +13,14 @@ include ("${CMAKE_CURRENT_SOURCE_DIR}/cmake/compilers_flags_helper_functions.cma
 add_compiler_flags (--coverage)
 add_linker_flags (--coverage)
 
+set (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR})
+
 include_directories (tests
                      tests/testing_framework
                      library)
 
 add_subdirectory (library)
+
 
 file (GLOB SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
                    "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cpp")
