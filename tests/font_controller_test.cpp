@@ -39,6 +39,19 @@ SCENARIO("correct initial parameters setting") {
     }
 
     WHEN(
+        "method SetInitialParameters called with incorrect "
+        "widget height") {
+      label.setGeometry(10, 10, 100, -100);
+      double font_scale_multiplier = 1.0;
+
+      THEN("exception should be thrown") {
+        REQUIRE_THROWS_AS(
+            font_controller.SetInitialParameters(font_scale_multiplier, label),
+            const std::exception&);
+      }
+    }
+
+    WHEN(
         "method SetInitialParameters called with negative or incorrect "
         "parameters in signature") {
       std::string error_text;
