@@ -24,6 +24,22 @@ SCENARIO("correct using of font controller class") {
                           const std::exception&);
       }
     }
+
+    WHEN(
+        "method SetInitialWidgetMeasurements called with negative or incorrect "
+        "parameters in signature") {
+      std::string error_text;
+      try {
+        font_controller.SetInitialWidgetMeasurements(-0.5, label);
+      } catch (const std::exception& error) {
+        error_text = error.what();
+      }
+
+      THEN("exception should contain \"Incorrect initial widget parameters\"") {
+        REQUIRE(error_text ==
+                std::string("incorrect initial widget parameters"));
+      }
+    }
   }
   QApplication::exit();
 }

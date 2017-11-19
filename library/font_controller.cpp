@@ -9,7 +9,7 @@ void FontController::SetInitialWidgetMeasurements(double font_scale_multiplier,
   try {
     initial_data_.SetFontScaleMultiplier(font_scale_multiplier);
   } catch (const std::exception&) {
-    throw std::logic_error("Incorrect initial widget parameters");
+    throw std::logic_error("incorrect initial widget parameters");
   }
 }
 
