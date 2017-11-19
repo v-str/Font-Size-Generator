@@ -4,6 +4,7 @@
 #include <doctest.h>
 
 #include <QApplication>
+#include <QFont>
 #include <QLabel>
 
 #include <font_controller.h>
@@ -43,6 +44,23 @@ SCENARIO("correct initial parameters setting") {
         "widget height") {
       label.setGeometry(10, 10, 100, -100);
       double font_scale_multiplier = 1.0;
+
+      THEN("exception should be thrown") {
+        REQUIRE_THROWS_AS(
+            font_controller.SetInitialParameters(font_scale_multiplier, label),
+            const std::exception&);
+      }
+    }
+
+    WHEN(
+        "method SetInitialParameters called with incorrect "
+        "widget initial font pixel size") {
+      label.setGeometry(10, 10, 100, 100);
+      double font_scale_multiplier = 1.0;
+      QFont initial_font;
+      initial_font = label.font();
+      initial_font.setPixelSize(-10);
+      label.setFont(initial_font);
 
       THEN("exception should be thrown") {
         REQUIRE_THROWS_AS(
