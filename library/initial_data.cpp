@@ -3,7 +3,7 @@
 #include <stdexcept>
 
 void InitialData::SetInitialWidgetWidth(int initial_widget_width) {
-  initial_widget_width_ = CheckOnNegativeValue(initial_widget_width);
+  initial_widget_width_ = ReturnZeroIfInputValutNegative(initial_widget_width);
 }
 
 void InitialData::SetInitialWidgetHeight(int initial_widget_height) {
@@ -29,6 +29,10 @@ int InitialData::InitialFontPixelSize() const {
 
 double InitialData::FontScaleMultiplier() const {
   return font_scale_multiplier_;
+}
+
+int InitialData::ReturnZeroIfInputValutNegative(int input_value) const {
+  return input_value < 0 ? 0 : input_value;
 }
 
 int InitialData::CheckOnNegativeValue(int input_value) {
