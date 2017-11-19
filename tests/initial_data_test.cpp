@@ -1,7 +1,4 @@
-﻿#include <stdexcept>
-#include <string>
-
-#include <doctest.h>
+﻿#include <doctest.h>
 
 #include <initial_data.h>
 

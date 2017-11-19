@@ -1,7 +1,5 @@
 ﻿#include <initial_data.h>
 
-#include <stdexcept>
-
 void InitialData::SetInitialWidgetWidth(int initial_widget_width) {
   initial_widget_width_ = ReturnZeroIfInputValutNegative(initial_widget_width);
 }
