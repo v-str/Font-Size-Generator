@@ -37,29 +37,10 @@ SCENARIO("correct initial data setting") {
     WHEN(
         "method SetFontScaleMultiplier receive negative value as "
         "parameter") {
-      THEN("exception should be thrown") {
-        REQUIRE_THROWS_AS(initial_data.SetFontScaleMultiplier(-1.0),
-                          const std::exception&);
-      }
-    }
-
-    WHEN(
-        "method SetFontScaleMultiplier receive negative value as "
-        "parameter") {
-      std::string error_text;
-      try {
-        initial_data.SetFontScaleMultiplier(-0.1);
-      } catch (const std::exception& error) {
-        error_text = error.what();
-      }
-
-      THEN(
-          "exception should be contain \"Font scale multiplier should be "
-          "positive or neutral value\"") {
-        REQUIRE(
-            error_text ==
-            std::string(
-                "Font scale multiplier should be positive or neutral value"));
+      initial_data.SetFontScaleMultiplier(-1.9);
+      THEN("font scale multiplier should be set to 0.0") {
+        int font_scale_multiplier = 0.0;
+        REQUIRE(font_scale_multiplier == initial_data.FontScaleMultiplier());
       }
     }
   }

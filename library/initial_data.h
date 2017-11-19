@@ -16,9 +16,7 @@ class InitialData {
 
  private:
   int ReturnZeroIfInputValutNegative(int input_value) const;
-
-  int CheckOnNegativeValue(int input_value);
-  double CheckOnNegativeFontScaleMultiplier(double font_scale_multiplier);
+  double ReturnZeroIfMultiplierNegative(double font_scale_multiplier) const;
 
   int initial_widget_width_ = 0;
   int initial_widget_height_ = 0;

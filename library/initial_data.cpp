@@ -18,7 +18,7 @@ void InitialData::SetInitialFontPixelSize(int initial_font_pixel_size) {
 
 void InitialData::SetFontScaleMultiplier(double font_scale_multiplier) {
   font_scale_multiplier_ =
-      CheckOnNegativeFontScaleMultiplier(font_scale_multiplier);
+      ReturnZeroIfMultiplierNegative(font_scale_multiplier);
 }
 
 int InitialData::InitialWidgetWidth() const { return initial_widget_width_; }
@@ -37,18 +37,7 @@ int InitialData::ReturnZeroIfInputValutNegative(int input_value) const {
   return input_value < 0 ? 0 : input_value;
 }
 
-int InitialData::CheckOnNegativeValue(int input_value) {
-  if (input_value <= 0) {
-    throw std::logic_error("The widget sides size should be greater than 0");
-  }
-  return input_value;
-}
-
-double InitialData::CheckOnNegativeFontScaleMultiplier(
-    double font_scale_multiplier) {
-  if (font_scale_multiplier < 0.0) {
-    throw std::logic_error(
-        "Font scale multiplier should be positive or neutral value");
-  }
-  return font_scale_multiplier;
+double InitialData::ReturnZeroIfMultiplierNegative(
+    double font_scale_multiplier) const {
+  return font_scale_multiplier < 0.0 ? 0.0 : font_scale_multiplier;
 }
