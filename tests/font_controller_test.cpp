@@ -14,23 +14,23 @@ SCENARIO("correct using of font controller class") {
     FontController font_controller;
 
     WHEN(
-        "method SetInitialWidgetMeasurements called with negative scale "
+        "method SetInitialParameters called with negative scale "
         "multiplier") {
       double font_scale_multiplier = -0.3;
 
       THEN("exception should be thrown") {
-        REQUIRE_THROWS_AS(font_controller.SetInitialWidgetMeasurements(
-                              font_scale_multiplier, label),
-                          const std::exception&);
+        REQUIRE_THROWS_AS(
+            font_controller.SetInitialParameters(font_scale_multiplier, label),
+            const std::exception&);
       }
     }
 
     WHEN(
-        "method SetInitialWidgetMeasurements called with negative or incorrect "
+        "method SetInitialParameters called with negative or incorrect "
         "parameters in signature") {
       std::string error_text;
       try {
-        font_controller.SetInitialWidgetMeasurements(-0.5, label);
+        font_controller.SetInitialParameters(-0.5, label);
       } catch (const std::exception& error) {
         error_text = error.what();
       }
