@@ -11,23 +11,17 @@ SCENARIO("correct initial data setting") {
 
     WHEN("method SetInitialWidgetWidth receive negative value") {
       initial_data.SetInitialWidgetWidth(-100);
-      THEN("initial widget width should be equal 0") {
+      THEN("initial widget width should be set to 0") {
         int initial_widget_width = 0;
         REQUIRE(initial_widget_width == initial_data.InitialWidgetWidth());
       }
     }
 
     WHEN("method SetInitialWidgetHeight receive negative value") {
-      THEN("exception should be thrown") {
-        REQUIRE_THROWS_AS(initial_data.SetInitialWidgetHeight(-100),
-                          const std::exception&);
-      }
-    }
-
-    WHEN("method SetInitialWidgetHeight receive 0 as parameter") {
-      THEN("exception should be thrown") {
-        REQUIRE_THROWS_AS(initial_data.SetInitialWidgetHeight(0),
-                          const std::exception&);
+      initial_data.SetInitialWidgetHeight(-1);
+      THEN("initial widget height should be set to 0") {
+        int initial_widget_height = 0;
+        REQUIRE(initial_widget_height == initial_data.InitialWidgetHeight());
       }
     }
 
@@ -35,22 +29,6 @@ SCENARIO("correct initial data setting") {
       THEN("exception should be thrown") {
         REQUIRE_THROWS_AS(initial_data.SetInitialFontPixelSize(-100.5),
                           const std::exception&);
-      }
-    }
-
-    WHEN("method SetInitialWidgetHeight receive 0 as parameter") {
-      std::string error_text;
-      try {
-        initial_data.SetInitialWidgetHeight(0);
-      } catch (const std::exception& error) {
-        error_text = error.what();
-      }
-
-      THEN(
-          "exception should contain \"The widget sides size should be greater "
-          "than 0\"") {
-        REQUIRE(error_text ==
-                std::string("The widget sides size should be greater than 0"));
       }
     }
 
