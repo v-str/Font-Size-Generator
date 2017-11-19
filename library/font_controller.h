@@ -11,7 +11,7 @@ class QWidget;
 class FontController {
  public:
   void SetInitialParameters(double font_scale_multiplier,
-                                    const QWidget& widget);
+                            const QWidget& widget);
   void ControllFontSize(QWidget* widget);
 
  private:
