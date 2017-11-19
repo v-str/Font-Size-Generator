@@ -26,9 +26,11 @@ SCENARIO("correct initial data setting") {
     }
 
     WHEN("method SetInitialFontPixelSize receive negative value") {
-      THEN("exception should be thrown") {
-        REQUIRE_THROWS_AS(initial_data.SetInitialFontPixelSize(-100.5),
-                          const std::exception&);
+      initial_data.SetInitialFontPixelSize(-33);
+      THEN("initial widget font pixel size should be set to 0") {
+        int initial_widget_font_pixel_size = 0;
+        REQUIRE(initial_widget_font_pixel_size ==
+                initial_data.InitialFontPixelSize());
       }
     }
 

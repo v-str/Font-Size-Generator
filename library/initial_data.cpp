@@ -12,7 +12,8 @@ void InitialData::SetInitialWidgetHeight(int initial_widget_height) {
 }
 
 void InitialData::SetInitialFontPixelSize(int initial_font_pixel_size) {
-  initial_font_pixel_size_ = CheckOnNegativeValue(initial_font_pixel_size);
+  initial_font_pixel_size_ =
+      ReturnZeroIfInputValutNegative(initial_font_pixel_size);
 }
 
 void InitialData::SetFontScaleMultiplier(double font_scale_multiplier) {
