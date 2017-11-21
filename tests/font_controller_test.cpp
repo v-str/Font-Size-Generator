@@ -14,7 +14,9 @@ SCENARIO("font controller initial parameters setting") {
     FontController font_controller;
     QLabel label;
 
-    WHEN("font controller called with negative font scale multiplier") {
+    WHEN(
+        "method SetInitialParameters called with negative font scale "
+        "multiplier") {
       std::string error_text;
       try {
         font_controller.SetInitialParameters(-1.0, label);
