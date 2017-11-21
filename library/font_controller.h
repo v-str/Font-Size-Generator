@@ -15,6 +15,8 @@ class FontController {
   void ControllFontSize(QWidget* widget);
 
  private:
+  bool IsInitialParametersIncorrect() const;
+
   InitialData initial_data_;
   QFont widget_font_;
   QRect widget_geometry_;
