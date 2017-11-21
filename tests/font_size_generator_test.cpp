@@ -17,7 +17,7 @@ SCENARIO("Font size generation") {
     WHEN("widget width changed to 850 and height changed to 580") {
       int result = font_size_generator.GenerateCurrentFontSize(QSize(850, 580));
       THEN("FontSizeGenerator should be return font size value equal 25") {
-        REQUIRE(result == 24);
+        REQUIRE(result == 25);
       }
     }
   }
