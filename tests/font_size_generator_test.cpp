@@ -7,4 +7,6 @@
 #include <QFont>
 #include <QLabel>
 
-#include <font_controller.h>
+#include <font_size_generator.h>
+
+SCENARIO("") { QApplication::exit(); }

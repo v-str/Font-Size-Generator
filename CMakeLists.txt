@@ -5,7 +5,7 @@ enable_testing ()
 set (CMAKE_INCLUDE_CURRENT_DIR ON)
 set (CMAKE_CXX_STANDARD 11)
 
-set (PROJECT_NAME FontController)
+set (PROJECT_NAME FontSizeGenerator)
 project (${PROJECT_NAME})
 
 include ("${CMAKE_CURRENT_SOURCE_DIR}/cmake/compilers_flags_helper_functions.cmake")
@@ -29,7 +29,7 @@ file (GLOB HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/tests/testing_framework*.h")
 
 add_executable (${PROJECT_NAME} "${SOURCES}" "${HEADERS}")
 
-target_link_libraries (${PROJECT_NAME} FontControllerLibrary)
+target_link_libraries (${PROJECT_NAME} FontSizeGeneratorLib)
 
 add_test (${PROJECT_NAME} ${PROJECT_NAME})
 
