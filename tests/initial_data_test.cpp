@@ -1,5 +1,8 @@
 ﻿#include <doctest.h>
 
+#include <stdexcept>
+#include <string>
+
 #include <initial_data.h>
 
 SCENARIO("correct initial data setting") {
@@ -23,12 +26,9 @@ SCENARIO("correct initial data setting") {
     }
 
     WHEN("method SetInitialFontPixelSize receive negative value") {
-      initial_data.SetInitialFontPixelSize(-33);
-
-      THEN("initial widget font pixel size should be set to 0") {
-        int initial_widget_font_pixel_size = 0;
-        REQUIRE(initial_widget_font_pixel_size ==
-                initial_data.InitialFontPixelSize());
+      THEN("exception should be throw") {
+        REQUIRE_THROWS_AS(initial_data.SetInitialFontPixelSize(-35),
+                          const std::exception&);
       }
     }
 

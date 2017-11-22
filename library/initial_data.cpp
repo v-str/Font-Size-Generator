@@ -1,5 +1,7 @@
 ﻿#include <initial_data.h>
 
+#include <stdexcept>
+
 void InitialData::SetInitialWidgetWidth(int initial_widget_width) {
   initial_widget_width_ = ReturnZeroIfInputValutNegative(initial_widget_width);
 }
@@ -10,8 +12,10 @@ void InitialData::SetInitialWidgetHeight(int initial_widget_height) {
 }
 
 void InitialData::SetInitialFontPixelSize(int initial_font_pixel_size) {
-  initial_font_pixel_size_ =
-      ReturnZeroIfInputValutNegative(initial_font_pixel_size);
+  if (IsValueNegative(initial_font_pixel_size)) {
+    throw std::logic_error("Negative parameter");
+  }
+  initial_font_pixel_size_ = initial_font_pixel_size;
 }
 
 void InitialData::SetFontScaleMultiplier(double font_scale_multiplier) {
@@ -39,3 +43,5 @@ double InitialData::ReturnZeroIfMultiplierNegative(
     double font_scale_multiplier) const {
   return font_scale_multiplier < 0.0 ? 0.0 : font_scale_multiplier;
 }
+
+bool InitialData::IsValueNegative(double value) const { return value < 0.0; }

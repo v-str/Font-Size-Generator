@@ -18,6 +18,8 @@ class InitialData {
   int ReturnZeroIfInputValutNegative(int input_value) const;
   double ReturnZeroIfMultiplierNegative(double font_scale_multiplier) const;
 
+  bool IsValueNegative(double value) const;
+
   int initial_widget_width_ = -1;
   int initial_widget_height_ = -1;
   int initial_font_pixel_size_ = -1;
