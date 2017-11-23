@@ -3,9 +3,13 @@
 #include <stdexcept>
 
 double InitialWidgetData::font_scale_multiplier_ = 0.0;
+int InitialWidgetData::initial_widget_width_ = 0;
 
 void InitialWidgetData::SetInitialWidgetWidth(int initial_widget_width) {
-  initial_widget_width_ = ReturnZeroIfInputValutNegative(initial_widget_width);
+  if (IsValueNegative(initial_widget_width)) {
+    throw std::logic_error("negative value passed as parameter");
+  }
+  initial_widget_width_ = initial_widget_width;
 }
 
 void InitialWidgetData::SetInitialWidgetHeight(int initial_widget_height) {
@@ -53,3 +57,5 @@ double InitialWidgetData::ReturnZeroIfMultiplierNegative(
 }
 
 bool InitialWidgetData::IsValueNegative(double value) { return value < 0.0; }
+
+bool InitialWidgetData::IsValueNegative(int value) { return value < 0; }

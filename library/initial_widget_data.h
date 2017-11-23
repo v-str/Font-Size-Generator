@@ -2,7 +2,7 @@
 #define INITIAL_DATA_H
 
 struct InitialWidgetData {
-  void SetInitialWidgetWidth(int initial_widget_width);
+  static void SetInitialWidgetWidth(int initial_widget_width);
   void SetInitialWidgetHeight(int initial_widget_height);
   void SetInitialFontPixelSize(int initial_font_pixel_size);
 
@@ -18,8 +18,9 @@ struct InitialWidgetData {
   double ReturnZeroIfMultiplierNegative(double font_scale_multiplier) const;
 
   static bool IsValueNegative(double value);
+  static bool IsValueNegative(int value);
 
-  int initial_widget_width_ = -1;
+  static int initial_widget_width_;
   int initial_widget_height_ = -1;
   int initial_font_pixel_size_ = -1;
   static double font_scale_multiplier_;

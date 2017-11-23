@@ -10,30 +10,28 @@ SCENARIO("correct initial data setting") {
     double font_scale_multiplier = -1.1;
 
     WHEN("method SetFontScaleMultiplier called with this parameter") {
-      std::string error_text;
-      try {
-        InitialWidgetData::SetFontScaleMultiplier(font_scale_multiplier);
-      } catch (const std::exception& error) {
-        error_text = error.what();
-      }
-
       THEN("exception should contain \"negative value passed as parameter\"") {
-        REQUIRE(error_text ==
-                std::string("negative value passed as parameter"));
+        REQUIRE_THROWS_AS(
+            InitialWidgetData::SetFontScaleMultiplier(font_scale_multiplier),
+            const std::exception&);
+      }
+    }
+  }
+
+  GIVEN("negative widget width = -400") {
+    int negative_widget_width = -400;
+
+    WHEN("method SetInitialWidgetWidth called with this parameter") {
+      THEN("exception should contain \"negative value passed as parameter\"") {
+        REQUIRE_THROWS_AS(
+            InitialWidgetData::SetInitialWidgetWidth(negative_widget_width),
+            const std::exception&);
       }
     }
   }
 
   GIVEN("instance of InitialData class") {
     InitialWidgetData initial_data;
-
-    WHEN("method SetInitialWidgetWidth receive negative value") {
-      initial_data.SetInitialWidgetWidth(-100);
-      THEN("initial widget width should be set to 0") {
-        int initial_widget_width = 0;
-        REQUIRE(initial_widget_width == initial_data.InitialWidgetWidth());
-      }
-    }
 
     WHEN("method SetInitialWidgetHeight receive negative value") {
       initial_data.SetInitialWidgetHeight(-1);
