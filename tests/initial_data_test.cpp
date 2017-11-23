@@ -76,4 +76,28 @@ SCENARIO("correct initial data setting") {
       }
     }
   }
+
+  GIVEN("negative widget font pixel size = -14") {
+    int negative_widget_font_pixel_size = -14;
+
+    WHEN("method SetInitialFontPixelSize called with this parameter") {
+      THEN("exception should be thrown") {
+        REQUIRE_THROWS_AS(InitialWidgetData::SetInitialFontPixelSize(
+                              negative_widget_font_pixel_size),
+                          const std::exception&);
+      }
+
+      AND_THEN("contain \"negative value passed as parameter\"") {
+        std::string error_text;
+        try {
+          InitialWidgetData::SetInitialFontPixelSize(
+              negative_widget_font_pixel_size);
+        } catch (const std::exception& error) {
+          error_text = error.what();
+        }
+        REQUIRE(error_text ==
+                std::string("negative value passed as parameter"));
+      }
+    }
+  }
 }

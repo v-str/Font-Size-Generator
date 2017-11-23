@@ -4,14 +4,9 @@
 struct InitialWidgetData {
   static void SetInitialWidgetWidth(int initial_widget_width);
   static void SetInitialWidgetHeight(int initial_widget_height);
-  void SetInitialFontPixelSize(int initial_font_pixel_size);
+  static void SetInitialFontPixelSize(int initial_font_pixel_size);
 
   static void SetFontScaleMultiplier(double font_scale_multiplier);
-
-  int InitialWidgetWidth() const;
-  int InitialWidgetHeight() const;
-  int InitialFontPixelSize() const;
-  double FontScaleMultiplier() const;
 
  private:
   int ReturnZeroIfInputValutNegative(int input_value) const;
@@ -22,7 +17,7 @@ struct InitialWidgetData {
 
   static int initial_widget_width_;
   static int initial_widget_height_;
-  int initial_font_pixel_size_ = -1;
+  static int initial_font_pixel_size_;
   static double font_scale_multiplier_;
 };
 
