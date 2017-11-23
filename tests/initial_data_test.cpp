@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <string>
 
-#include <initial_data.h>
+#include <initial_widget_data.h>
 
 SCENARIO("correct initial data setting") {
   GIVEN("negative font scale multiplier = -1.1") {
