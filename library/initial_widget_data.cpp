@@ -35,15 +35,6 @@ void InitialWidgetData::SetFontScaleMultiplier(double font_scale_multiplier) {
   font_scale_multiplier_ = font_scale_multiplier;
 }
 
-int InitialWidgetData::ReturnZeroIfInputValutNegative(int input_value) const {
-  return input_value < 0 ? 0 : input_value;
-}
-
-double InitialWidgetData::ReturnZeroIfMultiplierNegative(
-    double font_scale_multiplier) const {
-  return font_scale_multiplier < 0.0 ? 0.0 : font_scale_multiplier;
-}
-
 bool InitialWidgetData::IsValueNegative(double value) { return value < 0.0; }
 
 bool InitialWidgetData::IsValueNegative(int value) { return value < 0; }

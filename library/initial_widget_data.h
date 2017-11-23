@@ -9,9 +9,6 @@ struct InitialWidgetData {
   static void SetFontScaleMultiplier(double font_scale_multiplier);
 
  private:
-  int ReturnZeroIfInputValutNegative(int input_value) const;
-  double ReturnZeroIfMultiplierNegative(double font_scale_multiplier) const;
-
   static bool IsValueNegative(double value);
   static bool IsValueNegative(int value);
 
