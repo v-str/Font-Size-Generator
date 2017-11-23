@@ -6,8 +6,26 @@
 #include <initial_data.h>
 
 SCENARIO("correct initial data setting") {
+  GIVEN("negative font scale multiplier = -1.1") {
+    double font_scale_multiplier = -1.1;
+
+    WHEN("method SetFontScaleMultiplier called with this parameter") {
+      std::string error_text;
+      try {
+        InitialWidgetData::SetFontScaleMultiplier(font_scale_multiplier);
+      } catch (const std::exception& error) {
+        error_text = error.what();
+      }
+
+      THEN("exception should contain \"negative value passed as parameter\"") {
+        REQUIRE(error_text ==
+                std::string("negative value passed as parameter"));
+      }
+    }
+  }
+
   GIVEN("instance of InitialData class") {
-    InitialData initial_data;
+    InitialWidgetData initial_data;
 
     WHEN("method SetInitialWidgetWidth receive negative value") {
       initial_data.SetInitialWidgetWidth(-100);
@@ -29,16 +47,6 @@ SCENARIO("correct initial data setting") {
       THEN("exception should be throw") {
         REQUIRE_THROWS_AS(initial_data.SetInitialFontPixelSize(-35),
                           const std::exception&);
-      }
-    }
-
-    WHEN(
-        "method SetFontScaleMultiplier receive negative value as "
-        "parameter") {
-      initial_data.SetFontScaleMultiplier(-1.9);
-      THEN("font scale multiplier should be set to 0.0") {
-        int font_scale_multiplier = 0.0;
-        REQUIRE(font_scale_multiplier == initial_data.FontScaleMultiplier());
       }
     }
   }

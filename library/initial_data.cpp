@@ -2,46 +2,54 @@
 
 #include <stdexcept>
 
-void InitialData::SetInitialWidgetWidth(int initial_widget_width) {
+double InitialWidgetData::font_scale_multiplier_ = 0.0;
+
+void InitialWidgetData::SetInitialWidgetWidth(int initial_widget_width) {
   initial_widget_width_ = ReturnZeroIfInputValutNegative(initial_widget_width);
 }
 
-void InitialData::SetInitialWidgetHeight(int initial_widget_height) {
+void InitialWidgetData::SetInitialWidgetHeight(int initial_widget_height) {
   initial_widget_height_ =
       ReturnZeroIfInputValutNegative(initial_widget_height);
 }
 
-void InitialData::SetInitialFontPixelSize(int initial_font_pixel_size) {
+void InitialWidgetData::SetInitialFontPixelSize(int initial_font_pixel_size) {
   if (IsValueNegative(initial_font_pixel_size)) {
     throw std::logic_error("Negative parameter");
   }
   initial_font_pixel_size_ = initial_font_pixel_size;
 }
 
-void InitialData::SetFontScaleMultiplier(double font_scale_multiplier) {
-  font_scale_multiplier_ =
-      ReturnZeroIfMultiplierNegative(font_scale_multiplier);
+void InitialWidgetData::SetFontScaleMultiplier(double font_scale_multiplier) {
+  if (IsValueNegative(font_scale_multiplier)) {
+    throw std::logic_error("negative value passed as parameter");
+  }
+  font_scale_multiplier_ = font_scale_multiplier;
 }
 
-int InitialData::InitialWidgetWidth() const { return initial_widget_width_; }
+int InitialWidgetData::InitialWidgetWidth() const {
+  return initial_widget_width_;
+}
 
-int InitialData::InitialWidgetHeight() const { return initial_widget_height_; }
+int InitialWidgetData::InitialWidgetHeight() const {
+  return initial_widget_height_;
+}
 
-int InitialData::InitialFontPixelSize() const {
+int InitialWidgetData::InitialFontPixelSize() const {
   return initial_font_pixel_size_;
 }
 
-double InitialData::FontScaleMultiplier() const {
+double InitialWidgetData::FontScaleMultiplier() const {
   return font_scale_multiplier_;
 }
 
-int InitialData::ReturnZeroIfInputValutNegative(int input_value) const {
+int InitialWidgetData::ReturnZeroIfInputValutNegative(int input_value) const {
   return input_value < 0 ? 0 : input_value;
 }
 
-double InitialData::ReturnZeroIfMultiplierNegative(
+double InitialWidgetData::ReturnZeroIfMultiplierNegative(
     double font_scale_multiplier) const {
   return font_scale_multiplier < 0.0 ? 0.0 : font_scale_multiplier;
 }
 
-bool InitialData::IsValueNegative(double value) const { return value < 0.0; }
+bool InitialWidgetData::IsValueNegative(double value) { return value < 0.0; }
