@@ -4,6 +4,7 @@
 
 double InitialWidgetData::font_scale_multiplier_ = 0.0;
 int InitialWidgetData::initial_widget_width_ = 0;
+int InitialWidgetData::initial_widget_height_ = 0;
 
 void InitialWidgetData::SetInitialWidgetWidth(int initial_widget_width) {
   if (IsValueNegative(initial_widget_width)) {
@@ -13,8 +14,10 @@ void InitialWidgetData::SetInitialWidgetWidth(int initial_widget_width) {
 }
 
 void InitialWidgetData::SetInitialWidgetHeight(int initial_widget_height) {
-  initial_widget_height_ =
-      ReturnZeroIfInputValutNegative(initial_widget_height);
+  if (IsValueNegative(initial_widget_height)) {
+    throw std::logic_error("negative value passed as parameter");
+  }
+  initial_widget_height_ = initial_widget_height;
 }
 
 void InitialWidgetData::SetInitialFontPixelSize(int initial_font_pixel_size) {
