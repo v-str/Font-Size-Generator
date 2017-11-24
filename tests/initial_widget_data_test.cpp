@@ -18,7 +18,7 @@ SCENARIO("correct initial data setting") {
             const std::exception&);
       }
 
-      AND_THEN("contain \"negative value passed as parameter\"") {
+      AND_THEN("should contain \"negative value passed as parameter\"") {
         std::string error_text;
         try {
           InitialWidgetData::SetFontScaleMultiplier(font_scale_multiplier);
@@ -41,7 +41,7 @@ SCENARIO("correct initial data setting") {
             const std::exception&);
       }
 
-      AND_THEN("contain \"negative value passed as parameter\"") {
+      AND_THEN("should contain \"negative value passed as parameter\"") {
         std::string error_text;
         try {
           InitialWidgetData::SetInitialWidgetWidth(negative_widget_width);
@@ -64,7 +64,7 @@ SCENARIO("correct initial data setting") {
             const std::exception&);
       }
 
-      AND_THEN("contain \"negative value passed as parameter\"") {
+      AND_THEN("should contain \"negative value passed as parameter\"") {
         std::string error_text;
         try {
           InitialWidgetData::SetInitialWidgetHeight(negative_widget_height);
@@ -87,7 +87,7 @@ SCENARIO("correct initial data setting") {
                           const std::exception&);
       }
 
-      AND_THEN("contain \"negative value passed as parameter\"") {
+      AND_THEN("should contain \"negative value passed as parameter\"") {
         std::string error_text;
         try {
           InitialWidgetData::SetInitialFontPixelSize(
