@@ -43,7 +43,7 @@ double InitialWidgetData::FontScaleMultiplier() {
 
 int InitialWidgetData::InitialWidgetWidth() { return initial_widget_width_; }
 
-int InitialWidgetData::InitialWidgetHeigh() { return initial_widget_height_; }
+int InitialWidgetData::InitialWidgetHeight() { return initial_widget_height_; }
 
 int InitialWidgetData::InitialFontPixelSize() {
   return initial_font_pixel_size_;

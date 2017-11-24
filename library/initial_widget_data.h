@@ -11,17 +11,17 @@ struct InitialWidgetData {
 
   static double FontScaleMultiplier();
   static int InitialWidgetWidth();
-  static int InitialWidgetHeigh();
+  static int InitialWidgetHeight();
   static int InitialFontPixelSize();
 
  private:
   static bool IsValueNegative(double value);
   static bool IsValueNegative(int value);
 
+  static double font_scale_multiplier_;
   static int initial_widget_width_;
   static int initial_widget_height_;
   static int initial_font_pixel_size_;
-  static double font_scale_multiplier_;
 
   static std::string error_text_;
 };
