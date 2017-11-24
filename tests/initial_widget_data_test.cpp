@@ -10,9 +10,7 @@ SCENARIO("correct initial data setting") {
     double font_scale_multiplier = -1.1;
 
     WHEN("method SetFontScaleMultiplier called with this parameter") {
-      THEN(
-          "exception should be thrown and contain \"negative value passed as "
-          "parameter\"") {
+      THEN("exception should be thrown and contain") {
         REQUIRE_THROWS_AS(
             InitialWidgetData::SetFontScaleMultiplier(font_scale_multiplier),
             const std::exception&);

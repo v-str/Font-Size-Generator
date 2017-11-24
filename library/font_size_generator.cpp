@@ -2,10 +2,16 @@
 
 #include <stdexcept>
 
-FontSizeGenerator::FontSizeGenerator(int initial_widget_font_pixel_size,
-                                     double font_scale_coefficient,
-                                     const QSize& initial_widget_size) {
-  if (initial_widget_font_pixel_size < 0.0) {
-    throw std::logic_error("font pixel cannot be negative");
+#include <initial_widget_data.h>
+
+FontSizeGenerator::FontSizeGenerator(double font_scale_multiplier,
+                                     const QWidget& widget) {
+  try {
+    InitialWidgetData::SetFontScaleMultiplier(font_scale_multiplier);
+    InitialWidgetData::SetInitialWidgetWidth(widget.width());
+    InitialWidgetData::SetInitialWidgetHeight(widget.height());
+    InitialWidgetData::SetInitialFontPixelSize(widget.font().pixelSize());
+  } catch (const std::exception& initial_data_setting_error) {
+    throw std::logic_error(initial_data_setting_error.what());
   }
 }
