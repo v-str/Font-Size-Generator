@@ -15,3 +15,9 @@ FontSizeGenerator::FontSizeGenerator(double font_scale_multiplier,
     throw std::logic_error(initial_data_setting_error.what());
   }
 }
+
+void FontSizeGenerator::GenerateFontSize(QWidget* widget) {
+  if (widget == nullptr) {
+    throw std::logic_error("Null pointer passed as parameter");
+  }
+}
