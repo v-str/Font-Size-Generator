@@ -1,6 +1,8 @@
 ﻿#ifndef INITIAL_DATA_H
 #define INITIAL_DATA_H
 
+#include <string>
+
 struct InitialWidgetData {
   static void SetInitialWidgetWidth(int initial_widget_width);
   static void SetInitialWidgetHeight(int initial_widget_height);
@@ -16,6 +18,8 @@ struct InitialWidgetData {
   static int initial_widget_height_;
   static int initial_font_pixel_size_;
   static double font_scale_multiplier_;
+
+  static std::string error_text_;
 };
 
 #endif  // INITIAL_DATA_H
