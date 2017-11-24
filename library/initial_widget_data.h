@@ -4,11 +4,15 @@
 #include <string>
 
 struct InitialWidgetData {
+  static void SetFontScaleMultiplier(double font_scale_multiplier);
   static void SetInitialWidgetWidth(int initial_widget_width);
   static void SetInitialWidgetHeight(int initial_widget_height);
   static void SetInitialFontPixelSize(int initial_font_pixel_size);
 
-  static void SetFontScaleMultiplier(double font_scale_multiplier);
+  static double FontScaleMultiplier();
+  static int InitialWidgetWidth();
+  static int InitialWidgetHeigh();
+  static int InitialFontPixelSize();
 
  private:
   static bool IsValueNegative(double value);
