@@ -48,13 +48,13 @@ SCENARIO("font size generation") {
     WHEN(
         "method GenerateFontSize called with QLabel pointer which have equal "
         "parameters as default label") {
-      QLabel* label = new QLabel;
-      label->setGeometry(100, 100, 400, 600);
-      font_size_generator.GenerateFontSize(label);
+      QLabel label;
+      label.setGeometry(100, 100, 400, 600);
+      font_size_generator.GenerateFontSize(&label);
 
       THEN("generated font size should be equal 18") {
-        label->setFont(font_size_generator.GetGeneratedFont());
-        REQUIRE(label->font().pixelSize() == 18);
+        label.setFont(font_size_generator.GetGeneratedFont());
+        REQUIRE(label.font().pixelSize() == 18);
       }
     }
   }
