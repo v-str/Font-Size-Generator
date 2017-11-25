@@ -13,11 +13,11 @@ FontSizeGenerator::FontSizeGenerator(double font_scale_multiplier,
 }
 
 void FontSizeGenerator::GenerateFontSize(QWidget* widget) {
-  if (widget == nullptr) {
+  if (!widget) {
     throw std::logic_error("Null pointer passed as parameter");
-  } else {
-    CaptureWidgetParameters(*widget);
   }
+
+  CaptureWidgetParameters(*widget);
 
   if (IsWidgetSidesSizeEqualInitial()) {
     AssignInitialFont(widget);
