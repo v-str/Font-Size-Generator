@@ -11,7 +11,7 @@ SCENARIO("correct initial data setting") {
 
     WHEN("method SetFontScaleMultiplier called with this parameter") {
       InitialWidgetData::SetFontScaleMultiplier(font_scale_multiplier);
-      THEN("exception should be equal 0") {
+      THEN("method FontScaleMultiplier should return 0") {
         double result = InitialWidgetData::FontScaleMultiplier();
         REQUIRE(result == 0.0);
       }
