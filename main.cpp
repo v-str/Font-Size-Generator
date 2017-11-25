@@ -3,6 +3,8 @@
 
 #include <QApplication>
 
+#include <font_size_generator.h>
+
 int main(int argc, char** argv) {
   doctest::Context context;
   QApplication app(argc, argv);

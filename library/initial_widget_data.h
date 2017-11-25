@@ -17,8 +17,7 @@ struct InitialWidgetData {
   static QFont InitialWidgetFont();
 
  private:
-  static bool IsValueNegative(double value);
-  static bool IsValueNegative(int value);
+  static bool IsFontScaleMultiplierNegative(double value);
 
   static double font_scale_multiplier_;
   static int initial_widget_width_;
