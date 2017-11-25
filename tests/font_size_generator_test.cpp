@@ -4,6 +4,7 @@
 #include <string>
 
 #include <QFont>
+#include <QLabel>
 #include <QWidget>
 
 #include <font_size_generator.h>

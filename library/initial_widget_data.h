@@ -3,16 +3,18 @@
 
 #include <string>
 
+#include <QFont>
+
 struct InitialWidgetData {
   static void SetFontScaleMultiplier(double font_scale_multiplier);
   static void SetInitialWidgetWidth(int initial_widget_width);
   static void SetInitialWidgetHeight(int initial_widget_height);
-  static void SetInitialFontPixelSize(int initial_font_pixel_size);
+  static void SetInitialWidgetFont(const QFont& font);
 
   static double FontScaleMultiplier();
   static int InitialWidgetWidth();
   static int InitialWidgetHeight();
-  static int InitialFontPixelSize();
+  static QFont InitialWidgetFont();
 
  private:
   static bool IsValueNegative(double value);
@@ -21,7 +23,7 @@ struct InitialWidgetData {
   static double font_scale_multiplier_;
   static int initial_widget_width_;
   static int initial_widget_height_;
-  static int initial_font_pixel_size_;
+  static QFont initial_widget_font_;
 
   static std::string error_text_;
 };

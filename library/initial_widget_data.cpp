@@ -5,7 +5,7 @@
 double InitialWidgetData::font_scale_multiplier_ = 0.0;
 int InitialWidgetData::initial_widget_width_ = 0;
 int InitialWidgetData::initial_widget_height_ = 0;
-int InitialWidgetData::initial_font_pixel_size_ = 0;
+QFont InitialWidgetData::initial_widget_font_;
 std::string InitialWidgetData::error_text_ =
     "negative value passed as parameter";
 
@@ -30,11 +30,8 @@ void InitialWidgetData::SetInitialWidgetHeight(int initial_widget_height) {
   initial_widget_height_ = initial_widget_height;
 }
 
-void InitialWidgetData::SetInitialFontPixelSize(int initial_font_pixel_size) {
-  if (IsValueNegative(initial_font_pixel_size)) {
-    throw std::logic_error(error_text_);
-  }
-  initial_font_pixel_size_ = initial_font_pixel_size;
+void InitialWidgetData::SetInitialWidgetFont(const QFont& font) {
+  initial_widget_font_ = font;
 }
 
 double InitialWidgetData::FontScaleMultiplier() {
@@ -45,9 +42,7 @@ int InitialWidgetData::InitialWidgetWidth() { return initial_widget_width_; }
 
 int InitialWidgetData::InitialWidgetHeight() { return initial_widget_height_; }
 
-int InitialWidgetData::InitialFontPixelSize() {
-  return initial_font_pixel_size_;
-}
+QFont InitialWidgetData::InitialWidgetFont() { return initial_widget_font_; }
 
 bool InitialWidgetData::IsValueNegative(double value) { return value < 0.0; }
 

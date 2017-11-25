@@ -10,7 +10,7 @@ FontSizeGenerator::FontSizeGenerator(double font_scale_multiplier,
     InitialWidgetData::SetFontScaleMultiplier(font_scale_multiplier);
     InitialWidgetData::SetInitialWidgetWidth(widget.width());
     InitialWidgetData::SetInitialWidgetHeight(widget.height());
-    InitialWidgetData::SetInitialFontPixelSize(widget.font().pixelSize());
+    InitialWidgetData::SetInitialWidgetFont(widget.font());
   } catch (const std::exception& initial_data_setting_error) {
     throw std::logic_error(initial_data_setting_error.what());
   }
