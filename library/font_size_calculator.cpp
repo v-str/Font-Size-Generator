@@ -42,7 +42,9 @@ void FontSizeCalculator::CalculateIncrementBasedOnHeight() {
 bool FontSizeCalculator::IsCurrentSizeLessThenInitial(
     const QSize& current_widget_size) {
   return current_widget_size.width() <
-         initial_widget_data_.InitialWidgetWidth();
+             initial_widget_data_.InitialWidgetWidth() ||
+         current_widget_size.height() <
+             initial_widget_data_.InitialWidgetHeight();
 }
 
 int FontSizeCalculator::GetFontSize() {

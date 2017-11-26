@@ -60,7 +60,23 @@ SCENARIO("font size calculation") {
       int result_font_size = font_size_calculator.CalculateCurrentFontSize(
           current_size, initial_widget_data);
 
-      THEN("result font size should be equal initial") {
+      THEN("result font size should be equal initial font size") {
+        REQUIRE(result_font_size == 16);
+      }
+    }
+
+    WHEN(
+        "current size height less than initial height "
+        "and method CalculateCurrentFontSize of FontSizeCalculator called") {
+      QSize current_size;
+      current_size.setWidth(650);
+      current_size.setHeight(350);
+
+      FontSizeCalculator font_size_calculator;
+      int result_font_size = font_size_calculator.CalculateCurrentFontSize(
+          current_size, initial_widget_data);
+
+      THEN("result font size should be equal initial font size") {
         REQUIRE(result_font_size == 16);
       }
     }
