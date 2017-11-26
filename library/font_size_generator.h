@@ -5,6 +5,8 @@
 #include <QRect>
 #include <QWidget>
 
+#include <initial_widget_data.h>
+
 class FontSizeGenerator {
  public:
   FontSizeGenerator(double font_scale_multiplier, const QWidget& widget);
@@ -21,6 +23,8 @@ class FontSizeGenerator {
 
   QRect currect_widget_geometry_;
   QFont generated_font_;
+
+  InitialWidgetData initial_widget_data_;
 };
 
 #endif  // FONT_SIZE_GENERATOR_H

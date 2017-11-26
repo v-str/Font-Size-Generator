@@ -10,9 +10,10 @@ SCENARIO("correct initial data setting") {
     double font_scale_multiplier = -1.1;
 
     WHEN("method SetFontScaleMultiplier called with this parameter") {
-      InitialWidgetData::SetFontScaleMultiplier(font_scale_multiplier);
+      InitialWidgetData initial_widget_data;
+      initial_widget_data.SetFontScaleMultiplier(font_scale_multiplier);
       THEN("method FontScaleMultiplier should return 0") {
-        double result = InitialWidgetData::FontScaleMultiplier();
+        double result = initial_widget_data.FontScaleMultiplier();
         REQUIRE(result == 0.0);
       }
     }

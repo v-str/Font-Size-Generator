@@ -10,6 +10,32 @@
 #include <font_size_generator.h>
 
 SCENARIO("font size generation") {
+  GIVEN("two intances of FontSizeGenerator and QLabel") {
+    QFont font;
+    font.setPixelSize(14);
+
+    QLabel label_one;
+    label_one.setGeometry(10, 10, 100, 500);
+    label_one.setFont(font);
+
+    QLabel label_two;
+    label_two.setGeometry(20, 20, 200, 400);
+    font.setPixelSize(18);
+    label_two.setFont(font);
+
+    FontSizeGenerator(1.1, label_one);
+    FontSizeGenerator font_size_generator_two(2.01, label_two);
+
+    WHEN("method GenerateFontSize called for label_two") {
+      font_size_generator_two.GenerateFontSize(&label_two);
+      QFont result_font = font_size_generator_two.GetGeneratedFont();
+
+      THEN("font pixel size should be equal earlier set") {
+        REQUIRE(result_font.pixelSize() == 18);
+      }
+    }
+  }
+
   GIVEN("correct instance of QWidget and FontSizeGenerator") {
     QWidget widget;
     widget.setGeometry(10, 10, 10, 10);
@@ -58,4 +84,6 @@ SCENARIO("font size generation") {
       }
     }
   }
+
+  GIVEN("") {}
 }

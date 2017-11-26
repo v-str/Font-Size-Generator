@@ -2,14 +2,12 @@
 
 #include <stdexcept>
 
-#include <initial_widget_data.h>
-
 FontSizeGenerator::FontSizeGenerator(double font_scale_multiplier,
                                      const QWidget& widget) {
-  InitialWidgetData::SetFontScaleMultiplier(font_scale_multiplier);
-  InitialWidgetData::SetInitialWidgetWidth(widget.width());
-  InitialWidgetData::SetInitialWidgetHeight(widget.height());
-  InitialWidgetData::SetInitialWidgetFont(widget.font());
+  initial_widget_data_.SetFontScaleMultiplier(font_scale_multiplier);
+  initial_widget_data_.SetInitialWidgetWidth(widget.width());
+  initial_widget_data_.SetInitialWidgetHeight(widget.height());
+  initial_widget_data_.SetInitialWidgetFont(widget.font());
 }
 
 void FontSizeGenerator::GenerateFontSize(QWidget* widget) {
@@ -32,13 +30,13 @@ void FontSizeGenerator::CaptureWidgetParameters(const QWidget& widget) {
 }
 
 void FontSizeGenerator::AssignInitialFont(QWidget* widget) {
-  generated_font_ = InitialWidgetData::InitialWidgetFont();
+  generated_font_ = initial_widget_data_.InitialWidgetFont();
   widget->setFont(generated_font_);
 }
 
 bool FontSizeGenerator::IsWidgetSidesSizeEqualInitial() const {
   return currect_widget_geometry_.width() ==
-             InitialWidgetData::InitialWidgetWidth() ||
+             initial_widget_data_.InitialWidgetWidth() ||
          currect_widget_geometry_.height() ==
-             InitialWidgetData::InitialWidgetHeight();
+             initial_widget_data_.InitialWidgetHeight();
 }

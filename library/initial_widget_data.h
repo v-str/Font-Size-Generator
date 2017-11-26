@@ -6,25 +6,25 @@
 #include <QFont>
 
 struct InitialWidgetData {
-  static void SetFontScaleMultiplier(double font_scale_multiplier);
-  static void SetInitialWidgetWidth(int initial_widget_width);
-  static void SetInitialWidgetHeight(int initial_widget_height);
-  static void SetInitialWidgetFont(const QFont& font);
+  void SetFontScaleMultiplier(double font_scale_multiplier);
+  void SetInitialWidgetWidth(int initial_widget_width);
+  void SetInitialWidgetHeight(int initial_widget_height);
+  void SetInitialWidgetFont(const QFont& font);
 
-  static double FontScaleMultiplier();
-  static int InitialWidgetWidth();
-  static int InitialWidgetHeight();
-  static QFont InitialWidgetFont();
+  double FontScaleMultiplier() const;
+  int InitialWidgetWidth() const;
+  int InitialWidgetHeight() const;
+  QFont InitialWidgetFont() const;
 
  private:
-  static bool IsFontScaleMultiplierNegative(double value);
+  bool IsFontScaleMultiplierNegative(double value);
 
-  static double font_scale_multiplier_;
-  static int initial_widget_width_;
-  static int initial_widget_height_;
-  static QFont initial_widget_font_;
+  double font_scale_multiplier_ = 0.0;
+  int initial_widget_width_ = 0;
+  int initial_widget_height_ = 0;
+  QFont initial_widget_font_;
 
-  static std::string error_text_;
+  std::string error_text_;
 };
 
 #endif  // INITIAL_DATA_H
