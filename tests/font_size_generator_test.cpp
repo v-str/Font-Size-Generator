@@ -63,24 +63,33 @@ SCENARIO("font size generation") {
   GIVEN(
       "correct instance of QLabel with font = 18 pixels and "
       "FontSizeGenerator") {
-    QLabel default_label;
-    default_label.setGeometry(100, 100, 400, 600);
+    QLabel label;
+    label.setGeometry(100, 100, 400, 600);
     QFont font;
     font.setPixelSize(18);
-    default_label.setFont(font);
+    label.setFont(font);
 
-    FontSizeGenerator font_size_generator(2.0, default_label);
+    FontSizeGenerator font_size_generator(2.0, label);
 
     WHEN(
         "method GenerateFontSize called with QLabel pointer which have equal "
         "parameters as default label") {
-      QLabel label;
       label.setGeometry(100, 100, 400, 600);
       font_size_generator.GenerateFontSize(&label);
 
       THEN("generated font size should be equal 18") {
         label.setFont(font_size_generator.GetGeneratedFont());
         REQUIRE(label.font().pixelSize() == 18);
+      }
+    }
+
+    WHEN("method GenerateFontSize called with changed QLabel instance size") {
+      label.resize(750, 700);
+      font_size_generator.GenerateFontSize(&label);
+
+      THEN("generated font size should be equal 56") {
+        label.setFont(font_size_generator.GetGeneratedFont());
+        REQUIRE(label.font().pixelSize() == 56);
       }
     }
   }

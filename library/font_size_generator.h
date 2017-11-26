@@ -2,9 +2,10 @@
 #define FONT_SIZE_GENERATOR_H
 
 #include <QFont>
-#include <QRect>
+#include <QSize>
 #include <QWidget>
 
+#include <font_size_calculator.h>
 #include <initial_widget_data.h>
 
 class FontSizeGenerator {
@@ -21,10 +22,11 @@ class FontSizeGenerator {
 
   bool IsWidgetSidesSizeEqualInitial() const;
 
-  QRect currect_widget_geometry_;
+  QSize currect_widget_size_;
   QFont generated_font_;
 
   InitialWidgetData initial_widget_data_;
+  FontSizeCalculator font_size_calculator_;
 };
 
 #endif  // FONT_SIZE_GENERATOR_H

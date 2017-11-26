@@ -19,13 +19,18 @@ void FontSizeGenerator::GenerateFontSize(QWidget* widget) {
 
   if (IsWidgetSidesSizeEqualInitial()) {
     AssignInitialFont(widget);
+  } else {
+    int font_pixel_size = font_size_calculator_.CalculateCurrentFontSize(
+        currect_widget_size_, initial_widget_data_);
+    generated_font_.setPixelSize(font_pixel_size);
+    widget->setFont(generated_font_);
   }
 }
 
 QFont FontSizeGenerator::GetGeneratedFont() const { return generated_font_; }
 
 void FontSizeGenerator::CaptureWidgetParameters(const QWidget& widget) {
-  currect_widget_geometry_ = widget.geometry();
+  currect_widget_size_ = widget.size();
   generated_font_ = widget.font();
 }
 
@@ -35,8 +40,8 @@ void FontSizeGenerator::AssignInitialFont(QWidget* widget) {
 }
 
 bool FontSizeGenerator::IsWidgetSidesSizeEqualInitial() const {
-  return currect_widget_geometry_.width() ==
+  return currect_widget_size_.width() ==
              initial_widget_data_.InitialWidgetWidth() ||
-         currect_widget_geometry_.height() ==
+         currect_widget_size_.height() ==
              initial_widget_data_.InitialWidgetHeight();
 }
