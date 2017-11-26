@@ -84,6 +84,4 @@ SCENARIO("font size generation") {
       }
     }
   }
-
-  GIVEN("") {}
 }
