@@ -15,7 +15,9 @@ class FontSizeCalculator {
   void CalculateIncrementBasedOnWidth();
   void CalculateIncrementBasedOnHeight();
 
-  void CalculateFontSize();
+  bool IsCurrentSizeLessThenInitial(const QSize& current_widget_size);
+
+  int GetFontSize();
 
   QSize delta_size_;
   InitialWidgetData initial_widget_data_;
