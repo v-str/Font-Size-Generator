@@ -7,17 +7,11 @@ int FontSizeCalculator::CalculateCurrentFontSize(
 
   if (IsCurrentSizeLessThenInitial(current_widget_size)) {
     return initial_widget_data_.InitialWidgetFont().pixelSize();
-  }
-
-  CalculateDeltaSize(current_widget_size);
-
-  if (delta_size_.width() >= delta_size_.height()) {
-    CalculateIncrementBasedOnWidth();
   } else {
-    CalculateIncrementBasedOnHeight();
+    CalculateDeltaSize(current_widget_size);
+    CalculateFontIncrement();
+    return ReturnCurrentFontSize();
   }
-
-  return GetFontSize();
 }
 
 void FontSizeCalculator::CalculateDeltaSize(const QSize& current_widget_size) {
@@ -47,6 +41,14 @@ bool FontSizeCalculator::IsCurrentSizeLessThenInitial(
              initial_widget_data_.InitialWidgetHeight();
 }
 
-int FontSizeCalculator::GetFontSize() {
+void FontSizeCalculator::CalculateFontIncrement() {
+  if (delta_size_.width() >= delta_size_.height()) {
+    CalculateIncrementBasedOnWidth();
+  } else {
+    CalculateIncrementBasedOnHeight();
+  }
+}
+
+int FontSizeCalculator::ReturnCurrentFontSize() const {
   return initial_widget_data_.InitialWidgetFont().pixelSize() + font_increment_;
 }
