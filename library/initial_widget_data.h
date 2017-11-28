@@ -1,8 +1,6 @@
 ﻿#ifndef INITIAL_DATA_H
 #define INITIAL_DATA_H
 
-#include <string>
-
 #include <QFont>
 
 struct InitialWidgetData {
@@ -23,8 +21,6 @@ struct InitialWidgetData {
   int initial_widget_width_ = 0;
   int initial_widget_height_ = 0;
   QFont initial_widget_font_;
-
-  std::string error_text_;
 };
 
 #endif  // INITIAL_DATA_H

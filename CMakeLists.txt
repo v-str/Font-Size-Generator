@@ -18,9 +18,7 @@ set (LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR})
 include_directories (tests
                      tests/testing_framework
                      library)
-
 add_subdirectory (library)
-
 
 file (GLOB SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
                    "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cpp")
