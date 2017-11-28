@@ -12,13 +12,11 @@ class FontSizeCalculator {
 
  private:
   void CalculateDeltaSize(const QSize& current_widget_size);
-  void CalculateIncrementBasedOnWidth();
-  void CalculateIncrementBasedOnHeight();
-
+  void CalculateIncrement(int delta_side_size);
   bool IsCurrentSizeLessThenInitial(const QSize& current_widget_size);
   void CalculateFontIncrement();
 
-  int ReturnCurrentFontSize() const;
+  int CurrentFontSize() const;
 
   QSize delta_size_;
   InitialWidgetData initial_widget_data_;

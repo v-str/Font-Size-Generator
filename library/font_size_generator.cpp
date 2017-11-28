@@ -20,10 +20,7 @@ void FontSizeGenerator::GenerateFontSize(QWidget* widget) {
   if (IsWidgetSidesSizeEqualInitial()) {
     AssignInitialFont(widget);
   } else {
-    int font_pixel_size = font_size_calculator_.CalculateCurrentFontSize(
-        currect_widget_size_, initial_widget_data_);
-    generated_font_.setPixelSize(font_pixel_size);
-    widget->setFont(generated_font_);
+    CalculateFontSize(widget);
   }
 }
 
@@ -36,6 +33,13 @@ void FontSizeGenerator::CaptureWidgetParameters(const QWidget& widget) {
 
 void FontSizeGenerator::AssignInitialFont(QWidget* widget) {
   generated_font_ = initial_widget_data_.InitialWidgetFont();
+  widget->setFont(generated_font_);
+}
+
+void FontSizeGenerator::CalculateFontSize(QWidget* widget) {
+  int font_pixel_size = font_size_calculator_.CalculateCurrentFontSize(
+      currect_widget_size_, initial_widget_data_);
+  generated_font_.setPixelSize(font_pixel_size);
   widget->setFont(generated_font_);
 }
 

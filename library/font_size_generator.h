@@ -19,6 +19,7 @@ class FontSizeGenerator {
  private:
   void CaptureWidgetParameters(const QWidget& widget);
   void AssignInitialFont(QWidget* widget);
+  void CalculateFontSize(QWidget* widget);
 
   bool IsWidgetSidesSizeEqualInitial() const;
 

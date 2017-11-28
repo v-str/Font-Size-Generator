@@ -10,7 +10,7 @@ int FontSizeCalculator::CalculateCurrentFontSize(
   } else {
     CalculateDeltaSize(current_widget_size);
     CalculateFontIncrement();
-    return ReturnCurrentFontSize();
+    return CurrentFontSize();
   }
 }
 
@@ -21,16 +21,10 @@ void FontSizeCalculator::CalculateDeltaSize(const QSize& current_widget_size) {
                         initial_widget_data_.InitialWidgetHeight());
 }
 
-void FontSizeCalculator::CalculateIncrementBasedOnWidth() {
-  font_increment_ = initial_widget_data_.FontScaleMultiplier() *
-                    (delta_size_.width() /
-                     initial_widget_data_.InitialWidgetFont().pixelSize());
-}
-
-void FontSizeCalculator::CalculateIncrementBasedOnHeight() {
-  font_increment_ = initial_widget_data_.FontScaleMultiplier() *
-                    (delta_size_.height() /
-                     initial_widget_data_.InitialWidgetFont().pixelSize());
+void FontSizeCalculator::CalculateIncrement(int delta_side_size) {
+  font_increment_ =
+      initial_widget_data_.FontScaleMultiplier() *
+      (delta_side_size / initial_widget_data_.InitialWidgetFont().pixelSize());
 }
 
 bool FontSizeCalculator::IsCurrentSizeLessThenInitial(
@@ -43,12 +37,12 @@ bool FontSizeCalculator::IsCurrentSizeLessThenInitial(
 
 void FontSizeCalculator::CalculateFontIncrement() {
   if (delta_size_.width() >= delta_size_.height()) {
-    CalculateIncrementBasedOnWidth();
+    CalculateIncrement(delta_size_.width());
   } else {
-    CalculateIncrementBasedOnHeight();
+    CalculateIncrement(delta_size_.height());
   }
 }
 
-int FontSizeCalculator::ReturnCurrentFontSize() const {
+int FontSizeCalculator::CurrentFontSize() const {
   return initial_widget_data_.InitialWidgetFont().pixelSize() + font_increment_;
 }
