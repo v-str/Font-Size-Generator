@@ -9,7 +9,6 @@ set (CMAKE_INCLUDE_CURRENT_DIR ON)
 set (CMAKE_CXX_STANDARD 11)
 
 include ("${CMAKE_CURRENT_SOURCE_DIR}/cmake/compilers_flags_helper_functions.cmake")
-
 add_compiler_flags (--coverage)
 add_linker_flags (--coverage)
 
@@ -25,7 +24,6 @@ file (GLOB SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
                    "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cpp")
 
 file (GLOB HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/tests/testing_framework/*.h")
-
 
 add_executable (${PROJECT_NAME} ${SOURCES} ${HEADERS})
 target_link_libraries (${PROJECT_NAME} FontSizeGeneratorLib)
